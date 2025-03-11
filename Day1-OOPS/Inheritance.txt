@@ -1,0 +1,154 @@
+1. single inheritance
+
+using System;
+
+class Employee  
+{  
+    public string Name = "John";  
+    public void Work()  
+    {  
+        Console.WriteLine($"{Name} is working...");  
+    }  
+}  
+
+class Manager : Employee  // Manager inherits Employee
+{  
+    public void ManageTeam()  
+    {  
+        Console.WriteLine($"{Name} is managing the team.");  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        Manager mgr = new Manager();  
+        mgr.Work();   
+        mgr.ManageTeam();  
+    }  
+}
+
+Output
+John is working...
+John is managing the team.
+
+---------------------------------------------------------------------------------------------------------------
+
+2. Multilevel Inheritance 
+
+class Employee  
+{  
+    public string Name = "Alice";  
+}  
+
+class Developer : Employee  
+{  
+    public void Code()  
+    {  
+        Console.WriteLine($"{Name} is coding...");  
+    }  
+}  
+
+class SeniorDeveloper : Developer  
+{  
+    public void ReviewCode()  
+    {  
+        Console.WriteLine($"{Name} is reviewing code.");  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        SeniorDeveloper dev = new SeniorDeveloper();  
+        dev.Code();  
+        dev.ReviewCode();  
+    }  
+}
+
+
+output:
+Alice is coding...
+Alice is reviewing code.
+
+---------------------------------------------------------------------------------------------------------------
+3. Hierarchical Inheritance 
+class Employee  
+{  
+    public string Name = "Bob";  
+}  
+
+class Developer : Employee  
+{  
+    public void Code()  
+    {  
+        Console.WriteLine($"{Name} is coding...");  
+    }  
+}  
+
+class Manager : Employee  
+{  
+    public void ManageTeam()  
+    {  
+        Console.WriteLine($"{Name} is managing the team.");  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        Developer dev = new Developer();  
+        dev.Code();  
+
+        Manager mgr = new Manager();  
+        mgr.ManageTeam();  
+    }  
+}
+
+Output
+Bob is coding...
+Bob is managing the team.
+---------------------------------------------------------------------------------------------------------------
+
+4. Multiple Inheritance (Using Interfaces, as C# does not support multiple class inheritance)
+
+interface IEmployee  
+{  
+    void Work();  
+}  
+
+interface ITrainer  
+{  
+    void Train();  
+}  
+
+class TeamLead : IEmployee, ITrainer  // Implements multiple interfaces  
+{  
+    public void Work()  
+    {  
+        Console.WriteLine("Team Lead is working on the project...");  
+    }  
+
+    public void Train()  
+    {  
+        Console.WriteLine("Team Lead is training new employees.");  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        TeamLead lead = new TeamLead();  
+        lead.Work();  
+        lead.Train();  
+    }  
+}
+
+Output
+Team Lead is working on the project...
+Team Lead is training new employees.
+

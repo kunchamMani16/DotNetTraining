@@ -1,0 +1,57 @@
+code
+
+using System;
+class Voter  
+{  
+    private string name;  
+    private int age; 
+    //setter
+    public void SetVoterDetails(string voterName, int voterAge)  
+    {  
+        if (voterAge >= 18)  
+        {  
+            name = voterName;  
+            age = voterAge;  
+            Console.WriteLine("Vote is Valid");  
+        }  
+        else  
+        {  
+            Console.WriteLine("You must be at least 18 years old to vote.");  
+        }  
+    }  
+    //getter
+    public void GetVoterDetails()  
+    {  
+        if (age >= 18)  
+        {  
+            Console.WriteLine($"Voter Name: {name}, Age: {age}");  
+        }  
+        else  
+        {  
+            Console.WriteLine("No valid voter record found.");  
+        }  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        Voter voter1 = new Voter();  
+        voter1.SetVoterDetails("John Doe", 20);  
+        voter1.GetVoterDetails();  
+
+        Voter voter2 = new Voter();  
+        voter2.SetVoterDetails("Alice", 16); 
+        voter2.GetVoterDetails();  
+    }  
+}
+
+
+output:-
+
+Vote is Valid
+Voter Name: John Doe, Age: 20
+You must be at least 18 years old to vote.
+No valid voter record found.
+

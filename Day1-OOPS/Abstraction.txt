@@ -1,0 +1,50 @@
+code
+
+using System;
+
+abstract class Payment  
+{  
+    public abstract void MakePayment(double amount);  
+    public void PaymentSuccessMessage()  
+    {  
+        Console.WriteLine("Payment completed successfully!");  
+    }  
+}  
+class CreditCardPayment : Payment  
+{  
+    public override void MakePayment(double amount)  
+    {  
+        Console.WriteLine($"credit card payment of ${amount}...");  
+        PaymentSuccessMessage();  
+    }  
+}  
+class UPIPayment : Payment  
+{  
+    public override void MakePayment(double amount)  
+    {  
+        Console.WriteLine($"UPI payment of ${amount}...");  
+        PaymentSuccessMessage();  
+    }  
+}  
+
+class Program  
+{  
+    static void Main()  
+    {  
+        Payment payment1 = new CreditCardPayment();  
+        payment1.MakePayment(100.50);  
+        Payment payment2 = new UPIPayment();  
+        payment2.MakePayment(50.75);  
+    }  
+}
+
+
+
+
+output:-
+credit card payment of $100.5...
+Payment completed successfully!
+UPI payment of $50.75...
+Payment completed successfully!
+
+

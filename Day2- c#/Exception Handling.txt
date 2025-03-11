@@ -1,0 +1,38 @@
+using System;
+
+class VotingSystem
+{
+    static void CheckEligibility(int age, string voterID)
+    {
+        try
+        {
+            if (age < 0)
+                throw new ArgumentOutOfRangeException("Age cannot be negative!");
+            if (age < 18)
+                throw new Exception("You are not eligible to vote!");
+
+            Console.WriteLine("You are eligible to vote. Proceed with voting.");
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("Thank you for using the voting system.");
+        }
+    }
+
+    static void Main()
+    {
+      
+        CheckEligibility(20, "V12345"); // Eligible
+        CheckEligibility(15, "V67890"); // Not Eligible
+        CheckEligibility(-5, "V11111"); // Invalid Age
+        CheckEligibility(25, ""); // Missing Voter ID
+    }
+}

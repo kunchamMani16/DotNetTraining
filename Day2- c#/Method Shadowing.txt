@@ -1,0 +1,32 @@
+using System;
+
+class Order
+{
+    public void CalculateDiscount()
+    {
+        Console.WriteLine("Regular Order: 5% Discount");
+    }
+}
+
+class PremiumOrder : Order
+{
+    public new void CalculateDiscount()
+    {
+        Console.WriteLine("Premium Order: 15% Discount");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Order regularOrder = new Order();
+        regularOrder.CalculateDiscount(); // Output: Regular Order: 5% Discount
+
+        PremiumOrder premiumOrder = new PremiumOrder();
+        premiumOrder.CalculateDiscount(); // Output: Premium Order: 15% Discount
+
+        Order orderRef = new PremiumOrder();
+        orderRef.CalculateDiscount(); // Output: Regular Order: 5% Discount (base method is called)
+    }
+}

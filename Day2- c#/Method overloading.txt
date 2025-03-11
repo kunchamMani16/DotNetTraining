@@ -1,0 +1,39 @@
+Code:-
+
+using System;
+
+class ATM
+{
+    public void Withdraw(int cardNumber, int pin)
+    {
+        Console.WriteLine("Withdrawal successful using ATM Card.");
+    }
+    public void Withdraw(string mobileNumber, int otp)
+    {
+        Console.WriteLine("Withdrawal successful using Mobile App.");
+    }
+
+    public void Withdraw(long accountNumber, string chequeNumber)
+    {
+        Console.WriteLine("Withdrawal successful using Cheque.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        ATM atm = new ATM();
+        atm.Withdraw(12345678, 1234);
+        atm.Withdraw("9876543210", 567890);
+        atm.Withdraw(9876543210123456, "CHQ12345");
+    }
+}
+
+
+
+
+output:-
+Withdrawal successful using ATM Card.
+Withdrawal successful using Mobile App.
+Withdrawal successful using Cheque.

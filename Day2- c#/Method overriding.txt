@@ -1,0 +1,39 @@
+using System;
+
+class Payment
+{
+    public virtual void ProcessPayment()
+    {
+        Console.WriteLine("Processing generic payment");
+    }
+}
+
+class CreditCardPayment : Payment
+{
+    public override void ProcessPayment()
+    {
+        Console.WriteLine("Processing credit card payment");
+    }
+}
+
+class PayPalPayment : Payment
+{
+    public override void ProcessPayment()
+    {
+        Console.WriteLine("Processing PayPal payment");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Payment payment;
+
+        payment = new CreditCardPayment();
+        payment.ProcessPayment(); // Output: Processing credit card payment
+
+        payment = new PayPalPayment();
+        payment.ProcessPayment(); // Output: Processing PayPal payment
+    }
+}

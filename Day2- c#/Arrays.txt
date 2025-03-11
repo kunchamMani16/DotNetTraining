@@ -1,0 +1,51 @@
+using System;
+
+class ArrayMethodsExample
+{
+    static void Main()
+    {
+        int[] numbers = { 50, 20, 40, 10, 30 };
+
+        // 1️⃣ Length - Get total elements
+        Console.WriteLine("Array Length: " + numbers.Length);
+
+        // 2️⃣ Sort - Sort the array in ascending order
+        Array.Sort(numbers);
+        Console.WriteLine("Sorted Array: " + string.Join(", ", numbers));
+
+        // 3️⃣ Reverse - Reverse the sorted array
+        Array.Reverse(numbers);
+        Console.WriteLine("Reversed Array: " + string.Join(", ", numbers));
+
+        // 4️⃣ IndexOf - Find index of element 30
+        int index = Array.IndexOf(numbers, 30);
+        Console.WriteLine("Index of 30: " + index);
+
+        // 5️⃣ Resize - Increase array size
+        Array.Resize(ref numbers, 7);
+        numbers[5] = 60;
+        numbers[6] = 70;
+        Console.WriteLine("Resized Array: " + string.Join(", ", numbers));
+
+        // 6️⃣ Clear - Reset first two elements to default (0)
+        Array.Clear(numbers, 0, 2);
+        Console.WriteLine("After Clear: " + string.Join(", ", numbers));
+
+        // 7️⃣ Copy - Copy elements into a new array
+        int[] copiedArray = new int[numbers.Length];
+        Array.Copy(numbers, copiedArray, numbers.Length);
+        Console.WriteLine("Copied Array: " + string.Join(", ", copiedArray));
+    }
+}
+
+
+
+output:-
+
+Array Length: 5
+Sorted Array: 10, 20, 30, 40, 50
+Reversed Array: 50, 40, 30, 20, 10
+Index of 30: 2
+Resized Array: 50, 40, 30, 20, 10, 60, 70
+After Clear: 0, 0, 30, 20, 10, 60, 70
+Copied Array: 0, 0, 30, 20, 10, 60, 70

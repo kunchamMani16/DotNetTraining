@@ -1,0 +1,108 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> names = new List<string> { "Alice", "Bob", "Charlie", "David" };
+
+        // Sorting names in ascending order
+        var sortedNames = names.OrderBy(name => name);
+
+        Console.WriteLine("Sorted Names: " + string.Join(", ", sortedNames));
+    }
+}
+ output:-
+Sorted Names: Alice, Bob, Charlie, David
+-------------------------------------------------------------------------------------
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        // Using LINQ extension method Where()
+        var evenNumbers = numbers.Where(n => n % 2 == 0);
+
+        Console.WriteLine("Even Numbers: " + string.Join(", ", evenNumbers));
+    }
+}
+
+output:-
+Even Numbers: 2, 4, 6, 8, 10
+------------------------------------------------------------------------------------------
+
+
+
+Types of LINQ Extension Methods
+1. Filtering Methods
+Where()
+Distinct()
+Take()
+Skip()
+TakeWhile()
+SkipWhile()
+2. Projection (Transforming) Methods
+Select()
+SelectMany()
+3. Sorting Methods
+OrderBy()
+OrderByDescending()
+ThenBy()
+ThenByDescending()
+Reverse()
+4. Grouping Methods
+GroupBy()
+ToLookup()
+5. Aggregation Methods
+Count()
+Sum()
+Average()
+Min()
+Max()
+6. Joining Methods
+Join()
+GroupJoin()
+7. Set Methods (Distinct Operations)
+Distinct()
+Union()
+Intersect()
+Except()
+8. Quantifier Methods (Check Conditions)
+All()
+Any()
+Contains()
+9. Element Operators (Retrieve Specific Elements)
+First()
+FirstOrDefault()
+Last()
+LastOrDefault()
+Single()
+SingleOrDefault()
+ElementAt()
+ElementAtOrDefault()
+10. Concatenation Methods
+Concat()
+11. Conversion Methods
+ToList()
+ToArray()
+ToDictionary()
+ToLookup()
+12. Partitioning Methods
+Take()
+TakeWhile()
+Skip()
+SkipWhile()
+13. Generation Methods
+Empty()
+Range()
+Repeat()
+14. Equality Methods
+SequenceEqual()

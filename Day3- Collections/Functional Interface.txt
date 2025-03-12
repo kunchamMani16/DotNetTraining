@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    // Step 1: Define a delegate
+    delegate int MathOperation(int a, int b);
+
+    static void Main()
+    {
+        // Step 2: Assign a lambda expression to the delegate
+        MathOperation add = (a, b) => a + b;
+
+        // Step 3: Call the delegate
+        int result = add(10, 20);
+
+        // Step 4: Display the result
+        Console.WriteLine("Addition Result: " + result);
+    }
+}
+
+
+output:-
+Addition Result: 30

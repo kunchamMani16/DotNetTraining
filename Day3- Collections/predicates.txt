@@ -1,0 +1,12 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Predicate<int> canVote = age => age >= 18;
+
+        Console.WriteLine("Is 20 eligible to vote? " + canVote(20)); // True
+        Console.WriteLine("Is 16 eligible to vote? " + canVote(16)); // False
+    }
+}

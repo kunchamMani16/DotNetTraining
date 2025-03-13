@@ -39,6 +39,53 @@ output:-
 Even Numbers: 2, 4, 6, 8, 10
 ------------------------------------------------------------------------------------------
 
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Employee
+{
+    public string Name { get; set; }
+    public string Department { get; set; }
+    public int Salary { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<Employee> employees = new List<Employee>
+        {
+            new Employee { Name = "Alice", Department = "HR", Salary = 60000 },
+            new Employee { Name = "Bob", Department = "IT", Salary = 80000 },
+            new Employee { Name = "Charlie", Department = "IT", Salary = 70000 },
+            new Employee { Name = "David", Department = "Finance", Salary = 55000 },
+            new Employee { Name = "Eve", Department = "IT", Salary = 90000 }
+        };
+
+        // Applying multiple LINQ extension methods in a single query
+        var result = employees
+            .Where(e => e.Department == "IT")      // Filtering: Only IT employees
+            .OrderByDescending(e => e.Salary)      // Sorting: By highest salary first
+            .Select(e => new { e.Name, e.Salary }) // Projection: Selecting only Name & Salary
+            .Take(2);                              // Limiting: Only top 2 highest-paid employees
+
+        // Displaying the results
+        Console.WriteLine("Top 2 highest-paid IT employees:");
+        foreach (var emp in result)
+        {
+            Console.WriteLine($"Name: {emp.Name}, Salary: ${emp.Salary}");
+        }
+
+        // Aggregation Example: Calculating total salary of all IT employees
+        var totalSalary = employees
+            .Where(e => e.Department == "IT")
+            .Sum(e => e.Salary);
+
+        Console.WriteLine($"Total IT Department Salary: ${totalSalary}");
+    }
+}
+-----------------------------------------------------------------------------------
 
 
 Types of LINQ Extension Methods

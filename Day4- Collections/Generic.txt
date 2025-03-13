@@ -1,0 +1,178 @@
+ List<T> - Methods (`Add`, `Remove`, `Sort`, `Reverse`, `Count`)using System;
+using System.Collections.Generic;
+
+class ListExample
+{
+    static void Main()
+    {
+        List<int> list = new List<int> { 5, 2, 8, 1, 3 };
+
+        Console.WriteLine("Original List:");
+        PrintList(list);
+
+        list.Add(10); // Adding an element
+        Console.WriteLine("\nAfter Adding 10:");
+        PrintList(list);
+
+        list.Remove(2); // Removing an element
+        Console.WriteLine("\nAfter Removing 2:");
+        PrintList(list);
+
+        list.Sort(); // Sorting
+        Console.WriteLine("\nAfter Sorting:");
+        PrintList(list);
+
+        list.Reverse(); // Reversing
+        Console.WriteLine("\nAfter Reversing:");
+        PrintList(list);
+
+        Console.WriteLine("\nTotal Elements: " + list.Count); // Count property
+    }
+
+    static void PrintList(List<int> list)
+    {
+        foreach (var item in list)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+----------------------------------------------
+ Stack<T> - Methods (`Push`, `Pop`, `Peek`, `Contains`, `Count`)
+
+using System;
+using System.Collections.Generic;
+
+class StackExample
+{
+    static void Main()
+    {
+        Stack<string> stack = new Stack<string>();
+        stack.Push("Apple");
+        stack.Push("Banana");
+        stack.Push("Cherry");
+
+        Console.WriteLine("Stack Elements:");
+        PrintStack(stack);
+
+        Console.WriteLine("\nPeek (Top Element): " + stack.Peek()); // Peek method
+
+        stack.Pop(); // Removing top element
+        Console.WriteLine("\nAfter Pop:");
+        PrintStack(stack);
+
+        Console.WriteLine("\nContains 'Apple'? " + stack.Contains("Apple")); // Checking element
+
+        Console.WriteLine("\nTotal Elements: " + stack.Count); // Count property
+    }
+
+    static void PrintStack(Stack<string> stack)
+    {
+        foreach (var item in stack)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+---------------------------------------------------
+ Queue<T> - Methods (`Enqueue`, `Dequeue`, `Peek`, `Contains`, `Count`)
+
+using System;
+using System.Collections.Generic;
+
+class QueueExample
+{
+    static void Main()
+    {
+        Queue<string> queue = new Queue<string>();
+        queue.Enqueue("Apple");
+        queue.Enqueue("Banana");
+        queue.Enqueue("Cherry");
+
+        Console.WriteLine("Queue Elements:");
+        PrintQueue(queue);
+
+        Console.WriteLine("\nPeek (Front Element): " + queue.Peek()); // Peek method
+
+        queue.Dequeue(); // Removing first element
+        Console.WriteLine("\nAfter Dequeue:");
+        PrintQueue(queue);
+
+        Console.WriteLine("\nContains 'Banana'? " + queue.Contains("Banana")); // Checking element
+
+        Console.WriteLine("\nTotal Elements: " + queue.Count); // Count property
+    }
+
+    static void PrintQueue(Queue<string> queue)
+    {
+        foreach (var item in queue)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+----------------------------------------------------------------------
+ Dictionary<TKey, TValue> - Methods (`Add`, `Remove`, `ContainsKey`, `ContainsValue`, `Count`)
+using System;
+using System.Collections.Generic;
+
+class DictionaryExample
+{
+    static void Main()
+    {
+        Dictionary<int, string> dict = new Dictionary<int, string>();
+        dict.Add(1, "One");
+        dict.Add(2, "Two");
+        dict.Add(3, "Three");
+
+        Console.WriteLine("Dictionary Elements:");
+        PrintDictionary(dict);
+
+        Console.WriteLine("\nContains Key 2? " + dict.ContainsKey(2)); // Checking key
+        Console.WriteLine("Contains Value 'Three'? " + dict.ContainsValue("Three")); // Checking value
+
+        dict.Remove(2); // Removing key-value pair
+        Console.WriteLine("\nAfter Removing Key 2:");
+        PrintDictionary(dict);
+
+        Console.WriteLine("\nTotal Elements: " + dict.Count); // Count property
+    }
+
+    static void PrintDictionary(Dictionary<int, string> dict)
+    {
+        foreach (var pair in dict)
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+    }
+}
+
+----------------------------------------------------------
+SortedList<TKey, TValue> - Methods (`Add`, `Remove`, `ContainsKey`, `ContainsValue`, `GetByIndex`)
+
+using System;
+using System.Collections.Generic;
+
+class SortedListExample
+{
+    static void Main()
+    {
+        SortedList<int, string> sortedList = new SortedList<int, string>();
+        sortedList.Add(3, "Three");
+        sortedList.Add(1, "One");
+        sortedList.Add(2, "Two");
+
+        Console.WriteLine("SortedList Elements (Sorted by Key):");
+        PrintSortedList(sortedList);
+
+        Console.WriteLine("\nContains Key 2? " + sortedList.ContainsKey(2)); // Checking key
+        Console.WriteLine("Contains Value 'Three'? " + sortedList.ContainsValue("Three")); // Checking value
+
+        sortedList.Remove(2); // Removing key-value pair
+        Console.WriteLine("\nAfter Removing Key 2:");
+        PrintSortedList(sortedList);
+
+        Console.WriteLine("\nElement at Index 1: " + sortedList.Values[1]); // Get value by index
+    }
+
+    static void PrintSortedList(SortedList<int, string> sortedList)
+    {
+        foreach (var pair in sortedList)
+            Console.WriteLine($"{pair.Key}: {pair.Value}");
+    }
+}

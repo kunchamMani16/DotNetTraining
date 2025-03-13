@@ -1,0 +1,181 @@
+ ArrayList - Methods (`Add`, `Remove`, `Sort`, `Reverse`, `Count`)
+
+using System;
+using System.Collections;
+
+class ArrayListExample
+{
+    static void Main()
+    {
+        ArrayList list = new ArrayList() { 5, 2, 8, 1, 3 };
+
+        Console.WriteLine("Original ArrayList:");
+        PrintList(list);
+
+        list.Add(10); // Adding an element
+        Console.WriteLine("\nAfter Adding 10:");
+        PrintList(list);
+
+        list.Remove(2); // Removing an element
+        Console.WriteLine("\nAfter Removing 2:");
+        PrintList(list);
+
+        list.Sort(); // Sorting
+        Console.WriteLine("\nAfter Sorting:");
+        PrintList(list);
+
+        list.Reverse(); // Reversing
+        Console.WriteLine("\nAfter Reversing:");
+        PrintList(list);
+
+        Console.WriteLine("\nTotal Elements: " + list.Count); // Count property
+    }
+
+    static void PrintList(ArrayList list)
+    {
+        foreach (var item in list)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+
+--------------------------------------------------------
+ Stack - Methods (`Push`, `Pop`, `Peek`, `Contains`, `Count`)
+
+using System;
+using System.Collections;
+
+class StackExample
+{
+    static void Main()
+    {
+        Stack stack = new Stack();
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+
+        Console.WriteLine("Stack Elements:");
+        PrintStack(stack);
+
+        Console.WriteLine("\nPeek (Top Element): " + stack.Peek()); // Peek method
+
+        stack.Pop(); // Removing top element
+        Console.WriteLine("\nAfter Pop:");
+        PrintStack(stack);
+
+        Console.WriteLine("\nContains 10? " + stack.Contains(10)); // Checking element
+
+        Console.WriteLine("\nTotal Elements: " + stack.Count); // Count property
+    }
+
+    static void PrintStack(Stack stack)
+    {
+        foreach (var item in stack)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+------------------------------------------------
+Queue - Methods (`Enqueue`, `Dequeue`, `Peek`, `Contains`, `Count`)
+using System;
+using System.Collections;
+
+class QueueExample
+{
+    static void Main()
+    {
+        Queue queue = new Queue();
+        queue.Enqueue("Apple");
+        queue.Enqueue("Banana");
+        queue.Enqueue("Cherry");
+
+        Console.WriteLine("Queue Elements:");
+        PrintQueue(queue);
+
+        Console.WriteLine("\nPeek (Front Element): " + queue.Peek()); // Peek method
+
+        queue.Dequeue(); // Removing first element
+        Console.WriteLine("\nAfter Dequeue:");
+        PrintQueue(queue);
+
+        Console.WriteLine("\nContains Banana? " + queue.Contains("Banana")); // Checking element
+
+        Console.WriteLine("\nTotal Elements: " + queue.Count); // Count property
+    }
+
+    static void PrintQueue(Queue queue)
+    {
+        foreach (var item in queue)
+            Console.Write(item + " ");
+        Console.WriteLine();
+    }
+}
+-----------------------------------------------------
+Hashtable - Methods (`Add`, `Remove`, `ContainsKey`, `ContainsValue`, `Count`)
+
+using System;
+using System.Collections;
+
+class HashtableExample
+{
+    static void Main()
+    {
+        Hashtable ht = new Hashtable();
+        ht.Add(1, "One");
+        ht.Add(2, "Two");
+        ht.Add(3, "Three");
+
+        Console.WriteLine("Hashtable Elements:");
+        PrintHashtable(ht);
+
+        Console.WriteLine("\nContains Key 2? " + ht.ContainsKey(2)); // Checking key
+        Console.WriteLine("Contains Value 'Three'? " + ht.ContainsValue("Three")); // Checking value
+
+        ht.Remove(2); // Removing key-value pair
+        Console.WriteLine("\nAfter Removing Key 2:");
+        PrintHashtable(ht);
+
+        Console.WriteLine("\nTotal Elements: " + ht.Count); // Count property
+    }
+
+    static void PrintHashtable(Hashtable ht)
+    {
+        foreach (DictionaryEntry entry in ht)
+            Console.WriteLine($"{entry.Key}: {entry.Value}");
+    }
+}
+---------------------------------------
+SortedList - Methods (`Add`, `Remove`, `ContainsKey`, `ContainsValue`, `GetByIndex`)**
+
+using System;
+using System.Collections;
+
+class SortedListExample
+{
+    static void Main()
+    {
+        SortedList sortedList = new SortedList();
+        sortedList.Add(3, "Three");
+        sortedList.Add(1, "One");
+        sortedList.Add(2, "Two");
+
+        Console.WriteLine("SortedList Elements (Sorted by Key):");
+        PrintSortedList(sortedList);
+
+        Console.WriteLine("\nContains Key 2? " + sortedList.ContainsKey(2)); // Checking key
+        Console.WriteLine("Contains Value 'Three'? " + sortedList.ContainsValue("Three")); // Checking value
+
+        sortedList.Remove(2); // Removing key-value pair
+        Console.WriteLine("\nAfter Removing Key 2:");
+        PrintSortedList(sortedList);
+
+        Console.WriteLine("\nElement at Index 1: " + sortedList.GetByIndex(1)); // Get value by index
+    }
+
+    static void PrintSortedList(SortedList sortedList)
+    {
+        foreach (DictionaryEntry entry in sortedList)
+            Console.WriteLine($"{entry.Key}: {entry.Value}");
+    }
+}
+

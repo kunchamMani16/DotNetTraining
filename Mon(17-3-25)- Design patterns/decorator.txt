@@ -1,0 +1,45 @@
+public interface ICoffee
+{
+    string GetDescription();
+    double GetCost();
+}
+
+public class SimpleCoffee : ICoffee
+{
+    public string GetDescription() => "Simple Coffee";
+    public double GetCost() => 5.0;
+}
+
+public class MilkDecorator : ICoffee
+{
+    private ICoffee coffee;
+    public MilkDecorator(ICoffee coffee) => this.coffee = coffee;
+
+    public string GetDescription() => coffee.GetDescription() + ", Milk";
+    public double GetCost() => coffee.GetCost() + 1.5;
+}
+
+public class SugarDecorator : ICoffee
+{
+    private ICoffee coffee;
+    public SugarDecorator(ICoffee coffee) => this.coffee = coffee;
+
+    public string GetDescription() => coffee.GetDescription() + ", Sugar";
+    public double GetCost() => coffee.GetCost() + 0.5;
+}
+
+// Usage
+class Program
+{
+    static void Main()
+    {
+        ICoffee coffee = new SimpleCoffee();
+        Console.WriteLine($"{coffee.GetDescription()} - ${coffee.GetCost()}");
+
+        coffee = new MilkDecorator(coffee);
+        Console.WriteLine($"{coffee.GetDescription()} - ${coffee.GetCost()}");
+
+        coffee = new SugarDecorator(coffee);
+        Console.WriteLine($"{coffee.GetDescription()} - ${coffee.GetCost()}");
+    }
+}

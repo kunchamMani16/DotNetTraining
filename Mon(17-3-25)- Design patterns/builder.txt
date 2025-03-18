@@ -1,0 +1,40 @@
+public class Car
+{
+    public string Engine { get; set; }
+    public int Wheels { get; set; }
+
+    public override string ToString() => $"Car with {Engine} engine and {Wheels} wheels";
+}
+
+public class CarBuilder
+{
+    private Car car = new Car();
+
+    public CarBuilder SetEngine(string engine)
+    {
+        car.Engine = engine;
+        return this;
+    }
+
+    public CarBuilder SetWheels(int wheels)
+    {
+        car.Wheels = wheels;
+        return this;
+    }
+
+    public Car Build() => car;
+}
+
+// Usage
+class Program
+{
+    static void Main()
+    {
+        Car car = new CarBuilder()
+            .SetEngine("V8")
+            .SetWheels(4)
+            .Build();
+
+        Console.WriteLine(car);
+    }
+}

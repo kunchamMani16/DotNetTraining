@@ -1,37 +1,57 @@
-public interface IVehicle
-{
-    void Drive();
-}
+using System;
 
-public class Car : IVehicle
+public interface IPaymentgateway
 {
-    public void Drive() => Console.WriteLine("Driving a Car");
-}
+    void payment(int amount);           // credit card //platnium //titinum
 
-public class Bike : IVehicle
-{
-    public void Drive() => Console.WriteLine("Riding a Bike");
 }
-
-public class VehicleFactory
+class paypal : IPaymentgateway
 {
-    public static IVehicle GetVehicle(string vehicleType)
+    public void payment(int amount)
     {
-        return vehicleType switch
-        {
-            "Car" => new Car(),
-            "Bike" => new Bike(),
-            _ => throw new ArgumentException("Invalid vehicle type"),
-        };
+        Console.WriteLine(amount);
+    }
+}
+class phonepe : IPaymentgateway
+{
+    public void payment(int amount)
+    {
+        Console.WriteLine(amount);
+    }
+}
+class googlepay : IPaymentgateway
+{
+    public void payment(int amount)
+    {
+        Console.WriteLine(amount);
     }
 }
 
-// Usage
-class Program
+public static class paymentgatewayfactory
+{
+    public static IPaymentgateway createpaymentgateway(string gateway)
+    {
+        switch (gateway.ToLower())
+        {
+            case "paypal":
+                return new paypal();
+            case "phonepay":
+                return new phonepe();
+            case "googlepay":
+                return new googlepay();
+            default:
+                throw new ArgumentException("Invalid payment gateway");
+
+        }
+    }
+}
+class Factory
 {
     static void Main()
     {
-        IVehicle vehicle = VehicleFactory.GetVehicle("Car");
-        vehicle.Drive();
+        Console.WriteLine("select payament gatway 1:paypal 2:phonepay 3:googlepay");
+        string gateway = Console.ReadLine();
+        var v = paymentgatewayfactory.createpaymentgateway(gateway);
+        v.payment(500);
     }
 }
